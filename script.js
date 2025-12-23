@@ -417,8 +417,17 @@ function proceedToCheckout() {
     }
     
     createSparkleEffect(document.querySelector('.checkout-button'));
-    // Add checkout logic here
+    
+    // Save cart data to localStorage for payment page
+    localStorage.setItem('cart', JSON.stringify(cart));
+    
+    // Show notification and redirect to payment page
     showNotification('Proceeding to checkout...');
+    
+    // Redirect to payment page after a short delay
+    setTimeout(() => {
+        window.location.href = 'payment.html';
+    }, 1000);
 }
 
 // Sparkle animation
