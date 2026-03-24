@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Payment - Kaisom Organic Skincare</title>
+    <link rel="stylesheet" href="STYLES.CSS">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1>Kaisom Organic</h1>
+            </div>
+            <div class="nav-links">
+                <a href="INDEX.HTML">Home</a>
+                <a href="INDEX.HTML#products">Products</a>
+                <a href="INDEX.HTML#about">About</a>
+                <a href="INDEX.HTML#contact">Contact</a>
+            </div>
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Payment Page -->
+    <section class="payment-section">
+        <div class="container">
+            <div class="payment-header">
+                <h1>Secure Payment</h1>
+                <p>Complete your order with confidence</p>
+            </div>
+
+            <div class="payment-container">
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <div class="order-items" id="orderItems">
+                        <!-- Items will be populated by JavaScript -->
+                    </div>
+                    <div class="order-totals">
+                        <div class="total-line">
+                            <span>Subtotal:</span>
+                            <span id="subtotal">$0.00</span>
+                        </div>
+                        <div class="total-line">
+                            <span>Shipping:</span>
+                            <span id="shipping">$5.99</span>
+                        </div>
+                        <div class="total-line">
+                            <span>Tax:</span>
+                            <span id="tax">$0.00</span>
+                        </div>
+                        <div class="total-line total-final">
+                            <span>Total:</span>
+                            <span id="total">$0.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Methods -->
+                <div class="payment-methods">
+                    <h3>Choose Payment Method</h3>
+                    
+                    <!-- Payment Method Tabs -->
+                    <div class="payment-tabs">
+                        <button class="tab-btn active" data-tab="upi">
+                            <i class="fas fa-mobile-alt"></i>
+                            UPI Payment
+                        </button>
+                        <button class="tab-btn" data-tab="card">
+                            <i class="fas fa-credit-card"></i>
+                            Card Payment
+                        </button>
+                        <button class="tab-btn" data-tab="bank">
+                            <i class="fas fa-university"></i>
+                            Bank Transfer
+                        </button>
+                        <button class="tab-btn" data-tab="crypto">
+                            <i class="fab fa-bitcoin"></i>
+                            Crypto Payment
+                        </button>
+                    </div>
+
+                    <!-- UPI Payment -->
+                    <div class="payment-content active" id="upi">
+                        <div class="payment-form">
+                            <h4>UPI Payment</h4>
+                            <div class="upi-options">
+                                <div class="upi-option">
+                                    <input type="radio" id="phonepe" name="upi" value="phonepe">
+                                    <label for="phonepe">
+                                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iOCIgZmlsbD0iIzAwMDAwMCIvPgo8cGF0aCBkPSJNMjAgMTBDMTUuNTgyIDEwIDEyIDEzLjU4MiAxMiAxOEMxMiAyMi40MTggMTUuNTgyIDI2IDIwIDI2QzI0LjQxOCAyNiAyOCAyMi40MTggMjggMThDMjggMTMuNTgyIDI0LjQxOCAxMCAyMCAxMFoiIGZpbGw9IiNGRkZGRkYiLz4KPC9zdmc+" alt="PhonePe">
+                                        PhonePe
+                                    </label>
+                                </div>
+                                <div class="upi-option">
+                                    <input type="radio" id="gpay" name="upi" value="gpay">
+                                    <label for="gpay">
+                                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iOCIgZmlsbD0iIzQyODVGNCIvPgo8cGF0aCBkPSJNMjAgMTBDMTUuNTgyIDEwIDEyIDEzLjU4MiAxMiAxOEMxMiAyMi40MTggMTUuNTgyIDI2IDIwIDI2QzI0LjQxOCAyNiAyOCAyMi40MTggMjggMThDMjggMTMuNTgyIDI0LjQxOCAxMCAyMCAxMFoiIGZpbGw9IiNGRkZGRkYiLz4KPC9zdmc+" alt="Google Pay">
+                                        Google Pay
+                                    </label>
+                                </div>
+                                <div class="upi-option">
+                                    <input type="radio" id="paytm" name="upi" value="paytm">
+                                    <label for="paytm">
+                                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iOCIgZmlsbD0iIzAwQjVGRiIvPgo8cGF0aCBkPSJNMjAgMTBDMTUuNTgyIDEwIDEyIDEzLjU4MiAxMiAxOEMxMiAyMi40MTggMTUuNTgyIDI2IDIwIDI2QzI0LjQxOCAyNiAyOCAyMi40MTggMjggMThDMjggMTMuNTgyIDI0LjQxOCAxMCAyMCAxMFoiIGZpbGw9IiNGRkZGRkYiLz4KPC9zdmc+" alt="Paytm">
+                                        Paytm
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="upiId">UPI ID</label>
+                                <input type="text" id="upiId" placeholder="Enter your UPI ID" required>
+                            </div>
+                            <button class="pay-btn" onclick="processUPIPayment()">
+                                <i class="fas fa-mobile-alt"></i>
+                                Pay with UPI
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Card Payment -->
+                    <div class="payment-content" id="card">
+                        <div class="payment-form">
+                            <h4>Card Payment</h4>
+                            <div class="card-icons">
+                                <i class="fab fa-cc-visa"></i>
+                                <i class="fab fa-cc-mastercard"></i>
+                                <i class="fab fa-cc-amex"></i>
+                                <i class="fab fa-cc-discover"></i>
+                            </div>
+                            <div class="form-group">
+                                <label for="cardNumber">Card Number</label>
+                                <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="expiryDate">Expiry Date</label>
+                                    <input type="text" id="expiryDate" placeholder="MM/YY" maxlength="5" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cvv">CVV</label>
+                                    <input type="text" id="cvv" placeholder="123" maxlength="4" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="cardName">Cardholder Name</label>
+                                <input type="text" id="cardName" placeholder="John Doe" required>
+                            </div>
+                            <button class="pay-btn" onclick="processCardPayment()">
+                                <i class="fas fa-credit-card"></i>
+                                Pay with Card
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Bank Transfer -->
+                    <div class="payment-content" id="bank">
+                        <div class="payment-form">
+                            <h4>Bank Transfer</h4>
+                            <div class="bank-details">
+                                <div class="bank-info">
+                                    <h5>Account Details</h5>
+                                    <div class="detail-item">
+                                        <span class="label">Bank Name:</span>
+                                        <span class="value">Kaisom Organic Bank</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="label">Account Number:</span>
+                                        <span class="value">1234567890</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="label">IFSC Code:</span>
+                                        <span class="value">KAIS0001234</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="label">Account Holder:</span>
+                                        <span class="value">Kaisom Organic Skincare</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="transactionId">Transaction Reference ID</label>
+                                    <input type="text" id="transactionId" placeholder="Enter your transaction reference" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bankName">Your Bank Name</label>
+                                    <input type="text" id="bankName" placeholder="Enter your bank name" required>
+                                </div>
+                            </div>
+                            <button class="pay-btn" onclick="processBankPayment()">
+                                <i class="fas fa-university"></i>
+                                Confirm Bank Transfer
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Crypto Payment -->
+                    <div class="payment-content" id="crypto">
+                        <div class="payment-form">
+                            <h4>Crypto Payment</h4>
+                            <div class="crypto-options">
+                                <div class="crypto-option">
+                                    <input type="radio" id="bitcoin" name="crypto" value="bitcoin">
+                                    <label for="bitcoin">
+                                        <i class="fab fa-bitcoin"></i>
+                                        Bitcoin (BTC)
+                                    </label>
+                                </div>
+                                <div class="crypto-option">
+                                    <input type="radio" id="ethereum" name="crypto" value="ethereum">
+                                    <label for="ethereum">
+                                        <i class="fab fa-ethereum"></i>
+                                        Ethereum (ETH)
+                                    </label>
+                                </div>
+                                <div class="crypto-option">
+                                    <input type="radio" id="usdt" name="crypto" value="usdt">
+                                    <label for="usdt">
+                                        <i class="fas fa-coins"></i>
+                                        USDT
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="crypto-details">
+                                <div class="crypto-info">
+                                    <h5>Payment Details</h5>
+                                    <div class="detail-item">
+                                        <span class="label">Amount:</span>
+                                        <span class="value" id="cryptoAmount">0.00000000 BTC</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="label">Wallet Address:</span>
+                                        <span class="value crypto-address">1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="label">Network:</span>
+                                        <span class="value">Bitcoin Network</span>
+                                    </div>
+                                </div>
+                                <div class="qr-code">
+                                    <div class="qr-placeholder">
+                                        <i class="fas fa-qrcode"></i>
+                                        <p>QR Code</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="cryptoTransactionId">Transaction Hash</label>
+                                <input type="text" id="cryptoTransactionId" placeholder="Enter transaction hash" required>
+                            </div>
+                            <button class="pay-btn" onclick="processCryptoPayment()">
+                                <i class="fab fa-bitcoin"></i>
+                                Confirm Crypto Payment
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Features -->
+            <div class="security-features">
+                <h3>Your Payment is Secure</h3>
+                <div class="security-items">
+                    <div class="security-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>256-bit SSL Encryption</span>
+                    </div>
+                    <div class="security-item">
+                        <i class="fas fa-lock"></i>
+                        <span>PCI DSS Compliant</span>
+                    </div>
+                    <div class="security-item">
+                        <i class="fas fa-user-shield"></i>
+                        <span>Fraud Protection</span>
+                    </div>
+                    <div class="security-item">
+                        <i class="fas fa-headset"></i>
+                        <span>24/7 Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kaisom Organic</h3>
+                    <p>Your trusted partner in organic skincare solutions.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="INDEX.HTML">Home</a></li>
+                        <li><a href="INDEX.HTML#products">Products</a></li>
+                        <li><a href="INDEX.HTML#about">About</a></li>
+                        <li><a href="INDEX.HTML#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Kaisom Organic Skincare. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="SCRIPT.JS"></script>
+    <script src="payment.js"></script>
+</body>
+</html>
